@@ -3,7 +3,6 @@ import { useParams, useLocation } from "react-router-dom";
 import Cropper from "react-easy-crop";
 import imageCompression from "browser-image-compression";
 import getCroppedImg from "../Components/getCroppedImg";
-import axios from "axios";
 
 const RegistrationForm = () => {
   const { communityId } = useParams();
@@ -63,7 +62,7 @@ const RegistrationForm = () => {
     }
   };
 
-  // Submit function using axios
+  // Submit function
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -85,19 +84,15 @@ const RegistrationForm = () => {
   
       const compressedImage = await imageCompression(croppedFile, options);
       
-      const submissionData = new FormData();
-      submissionData.append("name", formData.name);
-      submissionData.append("phone", formData.phone);
-      submissionData.append("membershipNumber", formData.membershipNumber);
-      submissionData.append("image", compressedImage);
+      const submissionData = {
+        name: formData.name,
+        phone: formData.phone,
+        membershipNumber: formData.membershipNumber,
+        image: compressedImage,
+      };
 
-      // POST request to the API using axios
-      const response = await axios.post(
-        "https://57bd-103-170-182-112.ngrok-free.app/register-admin-user/",
-        submissionData
-      );
+      console.log(" submission data:", submissionData);
 
-      console.log("Response from API:", response.data);
       alert("Registration successful!");
 
       // Reset form state after successful submission
@@ -112,7 +107,7 @@ const RegistrationForm = () => {
       setShowCropper(false);
   
     } catch (error) {
-      console.error("Error during image compression or API submission:", error);
+      console.error("Error during image compression:", error);
       alert("An error occurred. Please try again.");
     }
   };
