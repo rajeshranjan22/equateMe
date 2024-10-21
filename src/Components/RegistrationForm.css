@@ -1,0 +1,97 @@
+/* .container {
+  min-width: 100px;
+  min-height: 100px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+h1 {
+  font-family: "Arial", sans-serif;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 20px;
+  color: #555;
+}
+input[type="text"],
+input[type="email"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  margin-bottom: 15px; 
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button.crop-button {
+  background-color: #28a745; 
+}
+
+button.crop-button:hover {
+  background-color: #218838;
+}
+
+.crop-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px; 
+  height: 500px;
+  background-color: #333;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    min-height: 100vh;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="file"],
+  button {
+    width: 100%;
+    max-width: 100%;
+  }
+} */

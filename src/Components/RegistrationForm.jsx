@@ -9,7 +9,8 @@ const RegistrationForm = () => {
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
-  const communityName = queryParams.get("communityName") || `Community ${communityId}`;
+  const communityName =
+    queryParams.get("communityName") || `Community ${communityId}`;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -65,25 +66,29 @@ const RegistrationForm = () => {
   // Submit function
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!handlePhoneValidation(formData.phone)) {
       alert("Please enter a valid 10-digit phone number.");
       return;
     }
-  
+
     try {
-      const croppedFile = new File([formData.croppedImage], "croppedImage.jpg", {
-        type: "image/jpeg",
-      });
-  
+      const croppedFile = new File(
+        [formData.croppedImage],
+        "croppedImage.jpg",
+        {
+          type: "image/jpeg",
+        }
+      );
+
       const options = {
         maxSizeMB: 1,
         maxWidthOrHeight: 1024,
         useWebWorker: true,
       };
-  
+
       const compressedImage = await imageCompression(croppedFile, options);
-      
+
       const submissionData = {
         name: formData.name,
         phone: formData.phone,
@@ -91,7 +96,7 @@ const RegistrationForm = () => {
         image: compressedImage,
       };
 
-      console.log(" submission data:", submissionData);
+      console.log("submission data:", submissionData);
 
       alert("Registration successful!");
 
@@ -105,7 +110,6 @@ const RegistrationForm = () => {
       });
       setIsImageSelected(false);
       setShowCropper(false);
-  
     } catch (error) {
       console.error("Error during image compression:", error);
       alert("An error occurred. Please try again.");
@@ -114,8 +118,13 @@ const RegistrationForm = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 flex flex-col justify-center items-center p-6">
-      <h1 className="text-3xl font-bold text-white mb-6">Register for {communityName}</h1>
-      <form onSubmit={handleSubmit} className="bg-teal-300 shadow-lg rounded-lg p-8 max-w-md w-full">
+      <h1 className="text-3xl font-bold text-white mb-6">
+        Register for {communityName}
+      </h1>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-teal-300 shadow-lg rounded-lg p-8 max-w-md w-full"
+      >
         <div className="mb-4">
           <input
             type="text"
